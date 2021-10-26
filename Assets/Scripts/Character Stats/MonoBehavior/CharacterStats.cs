@@ -43,7 +43,7 @@ public class CharacterStats : MonoBehaviour
 
     public void TakeDemage(CharacterStats attacker,CharacterStats defender)
     {
-        //当造成的伤害小于目标防御力时，就会加血，所以当造成的伤害小于目标防御力时，就将伤害值改为0
+        //所以当造成的伤害小于目标防御力时，就将伤害值改为0
         int demage = Mathf.Max(attacker.CurrentDemage() - defender.CurrentDefence,0);
         //防止生命值小于0
         defender.CurrentHealth = Mathf.Max(defender.CurrentHealth - demage, 0);
@@ -53,8 +53,7 @@ public class CharacterStats : MonoBehaviour
             //受到暴击伤害，就播放defender的GetHit动画
             defender.GetComponent<Animator>().SetTrigger("Hit");
         }
-        //TODO: Update UI
-        //TODO: 经验update
+        
     }
 
     private int CurrentDemage()
