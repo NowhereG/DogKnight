@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour,IEndGameObserver
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        //anim = GetComponent<Animator>();
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
     }
