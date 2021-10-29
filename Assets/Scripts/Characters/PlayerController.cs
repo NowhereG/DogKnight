@@ -63,6 +63,9 @@ public class PlayerController : MonoBehaviour,IEndGameObserver
     {
         //当玩家正在攻击敌人时点击其它地方，立即停止攻击，移动位置
         agent.isStopped = false;
+
+        if (isDead) return;
+
         //关闭所有携程
         StopAllCoroutines();
         //移动位置
@@ -71,6 +74,8 @@ public class PlayerController : MonoBehaviour,IEndGameObserver
 
     private void EventAttack(GameObject target)
     {
+        if (isDead) return;
+
         //需要先判断攻击目标存在
         if (target != null)
         {

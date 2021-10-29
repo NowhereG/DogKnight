@@ -8,6 +8,8 @@ public enum EnemyStates { GUARD, PATROL, CHASE, DEAD };
 
 //该特性会自动判断挂载当前脚本的物体是否有NavMeshAgent组件，如果没有就自动添加。
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
+
 public class EnemyController : MonoBehaviour,IEndGameObserver
 {
     private NavMeshAgent agent;
@@ -82,20 +84,26 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
         {
             enemyStates = EnemyStates.PATROL;
         }
-        remainLookAtTime = lookAtTime;
+        //remainLookAtTime = lookAtTime;
+        GameManager.Instance.AddObserver(this);
     }
 
+    //切换场景时启用
     //void OnEnable()
     //{
-    //    //Debug.Log("Enemy:"+GameManager.isInitialized);
     //    //添加观察者
     //    GameManager.Instance.AddObserver(this);
     //}
 
     void OnDisable()
     {
-        //移除观察者
-        GameManager.Instance.RemoveObserver(this);
+        //当敌人销毁执行一次，游戏关闭也会执行一次
+        if (GameManager.isInitialized)
+        {
+            //移除观察者
+            GameManager.Instance.RemoveObserver(this);
+        }
+        
     }
 
     void Update()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc27dab1773448642a86320f2f43e663, type: 3}
   m_Name: TurtleShell Data
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  currentHealth: 2
-  baseDefence: 2
-  currentDefence: 2
+  maxHealth: 50
+  currentHealth: 50
+  baseDefence: 5
+  currentDefence: 5

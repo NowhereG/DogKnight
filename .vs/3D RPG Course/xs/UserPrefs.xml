@@ -1,27 +1,26 @@
-﻿<Properties StartupConfiguration="{6982D025-9DDC-64A3-DB1D-C7E43000C374}|">
+﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Characters/EnemyController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character Stats/MonoBehavior/CharacterStats.cs" Line="17" Column="30" />
+      <File FileName="Assets/Scripts/Character Stats/MonoBehavior/CharacterStats.cs" Line="63" Column="24" />
       <File FileName="Assets/Scripts/Character Stats/ScriptableObject/CharacterData_SO.cs" />
-      <File FileName="Assets/Scripts/Characters/EnemyController.cs" Line="16" Column="1" />
-      <File FileName="Assets/Scripts/Characters/PlayerController.cs" Line="7" Column="41" />
+      <File FileName="Assets/Scripts/Characters/EnemyController.cs" Line="331" Column="15" />
+      <File FileName="Assets/Scripts/Characters/PlayerController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="3D RPG Course" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Character Stats" expanded="True">
-                  <Node name="MonoBehavior" expanded="True" />
-                  <Node name="ScriptableObject" expanded="True">
-                    <Node name="CharacterData_SO.cs" selected="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Character Stats" expanded="True">
+                    <Node name="MonoBehavior" expanded="True" />
+                    <Node name="ScriptableObject" expanded="True" />
+                  </Node>
+                  <Node name="Characters" expanded="True">
+                    <Node name="EnemyController.cs" selected="True" />
                   </Node>
                 </Node>
-                <Node name="Characters" expanded="True" />
-                <Node name="Combat" expanded="True" />
-                <Node name="Manager" expanded="True" />
-                <Node name="Tools" expanded="True" />
               </Node>
             </Node>
           </Node>

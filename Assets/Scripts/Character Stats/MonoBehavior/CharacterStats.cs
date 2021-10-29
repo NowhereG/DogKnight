@@ -6,20 +6,32 @@ using UnityEngine;
 //用来对CharacterData_SO中的数值进行操作
 public class CharacterStats : MonoBehaviour
 {
+    public CharacterData_SO moduleData;
+
     //声明CharacterData_SO变量
-    public CharacterData_SO characterData;
+    private CharacterData_SO characterData;
 
     public AttackData_SO attackData;
     //在Inspector面板中隐藏
     [HideInInspector]
     public bool isCritical;
 
-    #region Read from Data_SO
+    private void Awake()
+    {
+        //判断模板是否为空
+        if (moduleData != null)
+        {
+            //拷贝一份模板，使每个enemy的状态都独立
+            characterData = Instantiate(moduleData);
+        }
+    }
+
+
     public int MaxHealth
     {
         get { if (characterData != null) return characterData.maxHealth; else return 0; }
         set { characterData.maxHealth = value; }
-    }   
+    }
     public int CurrentHealth
     {
         get { if (characterData != null) return characterData.currentHealth; else return 0; }
@@ -37,14 +49,14 @@ public class CharacterStats : MonoBehaviour
         get { if (characterData != null) return characterData.currentDefence; else return 0; }
         set { characterData.currentDefence = value; }
     }
-    #endregion
 
-    #region character combat
 
-    public void TakeDemage(CharacterStats attacker,CharacterStats defender)
+
+
+    public void TakeDemage(CharacterStats attacker, CharacterStats defender)
     {
         //所以当造成的伤害小于目标防御力时，就将伤害值改为0
-        int demage = Mathf.Max(attacker.CurrentDemage() - defender.CurrentDefence,0);
+        int demage = Mathf.Max(attacker.CurrentDemage() - defender.CurrentDefence, 0);
         //防止生命值小于0
         defender.CurrentHealth = Mathf.Max(defender.CurrentHealth - demage, 0);
         //受到暴击伤害，就播放defender的GetHit动画
@@ -53,7 +65,7 @@ public class CharacterStats : MonoBehaviour
             //受到暴击伤害，就播放defender的GetHit动画
             defender.GetComponent<Animator>().SetTrigger("Hit");
         }
-        
+
     }
 
     private int CurrentDemage()
@@ -67,11 +79,11 @@ public class CharacterStats : MonoBehaviour
             coreDemage *= attackData.criticalMultiplier;
             Debug.Log("暴击！" + coreDemage);
         }
-        else{
+        else
+        {
             Debug.Log("普通攻击！" + coreDemage);
         }
         //返回伤害值
         return (int)coreDemage;
     }
-    #endregion
 }
